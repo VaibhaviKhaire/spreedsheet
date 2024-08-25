@@ -12,6 +12,6 @@ const useStore = create(set => ({
       const lastChange = state.history.pop();
       return { cells: { ...state.cells, ...lastChange }, history: state.history };
     }),
-    redo: () => { /* Implement redo logic here */ },
+    redo: () => {  },
   }));
   

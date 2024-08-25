@@ -1,6 +1,6 @@
 const Grid = () => {
-    const rows = 50; // example row count
-    const cols = 20; // example column count
+    const rows = 50; 
+    const cols = 20; 
   
     return (
       <div className="grid grid-cols-20 gap-1">

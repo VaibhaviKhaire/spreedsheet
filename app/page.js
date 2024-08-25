@@ -5,15 +5,13 @@ function Spreadsheet() {
   const [data, setData] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  const [visibleRows, setVisibleRows] = useState(20); // Start with 20 rows
-  const [visibleCols, setVisibleCols] = useState(20); // Start with 20 columns
   const containerRef = useRef(null);
 
-  const totalRows = 1000; // Total number of rows to load
-  const rowBatchSize = 20; // Number of rows to load per batch
+  const totalRows = 1000; 
+  const rowBatchSize = 20; 
 
   useEffect(() => {
-    // Initialize data with visible rows and columns
+   
     const initialData = Array.from({ length: visibleRows }, () =>
       Array(visibleCols).fill("")
     );
@@ -38,11 +36,11 @@ function Spreadsheet() {
 
   const handleScroll = () => {
     const container = containerRef.current;
-    // Trigger load more rows slightly earlier (10px from the bottom)
+   
     if (container.scrollTop + container.clientHeight >= container.scrollHeight - 10) {
       loadMoreRows();
     }
-    // Trigger load more columns slightly earlier (10px from the right edge)
+    
     if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 10) {
       loadMoreCols();
     }
@@ -53,7 +51,7 @@ function Spreadsheet() {
       i === rowIndex ? row.map((cell, j) => (j === colIndex ? value : cell)) : row
     );
     setData(newData);
-    handleSearch(searchQuery, newData); // Update search results if search query is active
+    handleSearch(searchQuery, newData); 
   };
 
   const handleSearch = (query, dataToSearch) => {
